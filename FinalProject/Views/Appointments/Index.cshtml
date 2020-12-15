@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FinalProject.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Appointmentdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apartment.ApartmentArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Manager.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tenant.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Appointmentdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apartment.ApartmentArea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manager.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tenant.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AppointmentId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AppointmentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AppointmentId })
+        </td>
+    </tr>
+}
+
+</table>
